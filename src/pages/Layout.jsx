@@ -10,13 +10,13 @@ const Layout = () => {
     e.preventDefault();
 
     const res = await fetch("/api/logout", {
-      method: 'POST',
+      method: "POST",
       headers: {
         Authorization: `Bearer ${token}`,
       },
     });
 
-    const data = await res.json();
+    // const data = await res.json();
     if (res.ok) {
       setUser(null);
       setToken(null);
@@ -24,7 +24,7 @@ const Layout = () => {
       navigate("/");
     }
 
-    console.log(data);
+    // console.log(data);
   };
 
   return (
@@ -40,6 +40,10 @@ const Layout = () => {
               <h1 className="text-slate-400 text-xs">
                 Welcome back, {user.name}
               </h1>
+
+              <Link to={"/create"} className="nav-link">
+                New Post
+              </Link>
 
               <form onSubmit={handleLogout}>
                 <button className="nav-link">Logout</button>

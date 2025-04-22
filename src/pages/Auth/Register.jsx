@@ -30,7 +30,7 @@ const Register = () => {
       localStorage.setItem("token", data.token);
       setToken(data.token);
       navigate("/");
-      console.log(data);
+      // console.log(data);
     }
   };
 

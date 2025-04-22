@@ -23,9 +23,9 @@ export default function AppProvider({ children }) {
   useEffect(() => {
     if (token) {
       getUser();
-    }
+      // console.log("user: ", user)
 
-    console.log("Effect ran!");
+    }
   }, [token]);
 
   return (
