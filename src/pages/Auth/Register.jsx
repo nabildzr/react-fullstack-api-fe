@@ -19,6 +19,9 @@ const Register = () => {
 
     const res = await fetch("/api/register", {
       method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify(formData),
     });
 

@@ -15,13 +15,16 @@ const Update = () => {
   const [errors, setErrors] = useState({});
 
   const getPost = async () => {
-    const res = await fetch(`/api/posts/${id}`);
+    const res = await fetch(`/api/posts/${id}`, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
     const data = await res.json();
 
-
     if (res.ok) {
-      if(data.post.user_id !== user.id) {
-          navigate("/")
+      if (data.post.user_id !== user.id) {
+        navigate("/");
       }
       setFormData({
         title: data.post.title,
@@ -37,6 +40,7 @@ const Update = () => {
       method: "PUT",
       headers: {
         Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(formData),
     });

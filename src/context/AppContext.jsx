@@ -10,6 +10,7 @@ export default function AppProvider({ children }) {
     const res = await fetch("/api/user", {
       headers: {
         Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
       },
     });
 
@@ -24,7 +25,6 @@ export default function AppProvider({ children }) {
     if (token) {
       getUser();
       // console.log("user: ", user)
-
     }
   }, [token]);
 
