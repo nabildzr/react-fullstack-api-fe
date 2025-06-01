@@ -74,8 +74,19 @@ const Show = () => {
                     ></path>
                   </svg>
                 )}
-                Created by {post.user.name} on{""}{" "}
-                {new Date(post.created_at).toLocaleTimeString()}
+                <div className="flex flex-col justify-center items-start ">
+                  Created by {post.user.name} on{""}{" "}
+                  {new Date(post.created_at).toLocaleDateString()}{" "}
+                  {new Date(post.created_at).toLocaleTimeString()}{" "}
+                  {post.created_at !== post.updated_at && (
+                    <div>
+                      <span className=" text-xs text-blue-500">
+                        (updated) {" "}
+                      </span>
+                      {new Date(post.updated_at).toLocaleTimeString()}
+                    </div>
+                  )}{" "}
+                </div>
               </small>
             </div>
           </div>
